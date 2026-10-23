@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Suntrust Properties Inc. | Dashboard</title>
+  <link rel="stylesheet" href="index.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <aside class="sidebar" id="sidebar">
+    <a class="brand" href="#dashboard">
+      <span class="brand-mark">S</span>
+      <span>suntrust<small>PROPERTIES INC.</small></span>
+    </a>
+
+    <p class="nav-label">WORKSPACE</p>
+    <nav>
+      <a class="nav-link active" href="#dashboard">▦ &nbsp; Dashboard</a>
+      <a class="nav-link" href="#properties">⌂ &nbsp; Properties <span class="count" id="navCount">6</span></a>
+      <a class="nav-link" href="#leads">♙ &nbsp; Buyer Leads</a>
+      <a class="nav-link" href="#sales">₱ &nbsp; Sales &amp; Inquiries</a>
+      <a class="nav-link" href="#staff">♧ &nbsp; Staff</a>
+      <a class="nav-link" href="#operations">⚙ &nbsp; Operations</a>
+      <a class="nav-link" href="#sustainability">♻ &nbsp; Sustainability</a>
+      <a class="nav-link" href="#reports">▤ &nbsp; Reports</a>
+    </nav>
+
+    <p class="nav-label manage-label">MANAGE</p>
+    <nav>
+      <a class="nav-link" href="#settings">⚙ &nbsp; Settings</a>
+      <a class="nav-link" href="mailto:wecare@suntrust.com.ph">? &nbsp; Help &amp; Support</a>
+    </nav>
+
+    <div class="sidebar-bottom">
+      <div class="support">
+        <b>Need assistance?</b>
+        <p>Contact your system administrator.</p>
+        <a href="mailto:wecare@suntrust.com.ph">Contact support →</a>
+      </div>
+      <div class="profile">
+        <span class="avatar">SP</span>
+        <span><b>Suntrust Admin</b><small>Administrator</small></span>
+      </div>
+    </div>
+  </aside>
+
+  <main class="main" id="dashboard">
+    <header class="topbar">
+      <div class="heading-wrap">
+        <button id="menuToggle" class="mobile-menu" aria-label="Toggle menu">☰</button>
+        <div>
+          <p class="crumb">Workspace / <b>Dashboard</b></p>
+          <h1>Dashboard overview</h1>
+        </div>
+      </div>
+      <div class="top-actions">
+        <label class="search">⌕
+          <input id="globalSearch" placeholder="Search properties..." aria-label="Search properties">
+        </label>
+        <button id="notify" class="icon-btn" aria-label="Notifications">♧<i></i></button>
+        <span id="today" class="date"></span>
+      </div>
+    </header>
+
+    <section class="welcome">
+      <div>
+        <p class="eyebrow">SUNTRUST PROPERTIES INC.</p>
+        <h2>Good day, Admin <span>✦</span></h2>
+        <p>Here's what's happening across your property portfolio today.</p>
+      </div>
+      <div class="actions">
+        <button class="secondary" id="exportBtn">↓ Export report</button>
+        <button class="primary" id="addBtn">＋ Add property</button>
+      </div>
+    </section>
+
+    <section class="stats">
+      <article class="stat">
+        <div class="stat-top">Total properties <span class="stat-icon green">⌂</span></div>
+        <strong id="totalProperties">6</strong>
+        <small>Sample developments</small>
+      </article>
+      <article class="stat">
+        <div class="stat-top">Buyer inquiries <span class="stat-icon blue">♙</span></div>
+        <strong>248</strong>
+        <small><em>+12.8%</em> vs. previous month</small>
+      </article>
+      <article class="stat">
+        <div class="stat-top">Sales pipeline <span class="stat-icon gold">₱</span></div>
+        <strong>₱18.6M</strong>
+        <small><em>+8.4%</em> illustrative estimate</small>
+      </article>
+      <article class="stat">
+        <div class="stat-top">Open tasks <span class="stat-icon purple">☷</span></div>
+        <strong>12</strong>
+        <small>Needs review</small>
+      </article>
+    </section>
+
+    <section class="analytics">
+      <article class="panel">
+        <div class="panel-heading">
+          <div><h3>Sales performance</h3><p>Monthly overview · sample figures</p></div>
+          <select id="chartPeriod" aria-label="Chart period">
+            <option value="year">This year</option>
+            <option value="half">Last 6 months</option>
+          </select>
+        </div>
+        <div class="chart-area"><canvas id="salesChart"></canvas></div>
+      </article>
+
+      <article class="panel" id="leads">
+        <div class="panel-heading">
+          <div><h3>Buyer lead sources</h3><p>Where inquiries come from</p></div>
+        </div>
+        <div class="donut">
+          <canvas id="leadChart"></canvas>
+          <div class="donut-label"><b>248</b><small>Total leads</small></div>
+        </div>
+        <div class="legend">
+          <span>● Website <b>42%</b></span>
+          <span>● Referrals <b>28%</b></span>
+          <span>● Social media <b>20%</b></span>
+          <span>● Other <b>10%</b></span>
+        </div>
+      </article>
+    </section>
+
+    <section class="panel portfolio" id="properties">
+      <div class="panel-heading portfolio-heading">
+        <div><h3>Property portfolio</h3><p>Review and manage listed developments</p></div>
+        <div class="table-tools">
+          <label class="table-search">⌕ <input id="propertySearch" placeholder="Search properties"></label>
+          <select id="statusFilter" aria-label="Filter status">
+            <option value="all">All statuses</option>
+            <option>Available</option>
+            <option>Pre-selling</option>
+            <option>Sold Out</option>
+            <option>Maintenance</option>
+          </select>
+          <button id="resetBtn" class="secondary small">Reset</button>
+        </div>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>PROPERTY / DEVELOPMENT</th><th>LOCATION</th><th>TYPE</th>
+              <th>STATUS</th><th>INQUIRIES</th><th></th>
+            </tr>
+          </thead>
+          <tbody id="propertyTable">
+            <tr data-status="Pre-selling">
+              <td><div class="property-name"><span class="thumb t1">PC</span><span><b>Palm City</b><small>House and Lot</small></span></div></td>
+              <td>Tagum</td><td>House &amp; Lot</td><td><span class="badge pre">Pre-selling</span></td><td>42</td><td>•••</td>
+            </tr>
+            <tr data-status="Available">
+              <td><div class="property-name"><span class="thumb t2">SF</span><span><b>San Francisco Heights</b><small>House and Lot</small></span></div></td>
+              <td>Laguna</td><td>House &amp; Lot</td><td><span class="badge available">Available</span></td><td>36</td><td>•••</td>
+            </tr>
+            <tr data-status="Available">
+              <td><div class="property-name"><span class="thumb t3">SH</span><span><b>Siena Hills</b><small>House and Lot</small></span></div></td>
+              <td>Batangas</td><td>House &amp; Lot</td><td><span class="badge available">Available</span></td><td>31</td><td>•••</td>
+            </tr>
+            <tr data-status="Pre-selling">
+              <td><div class="property-name"><span class="thumb t4">SV</span><span><b>Suntrust Verona</b><small>House and Lot</small></span></div></td>
+              <td>Cavite</td><td>House &amp; Lot</td><td><span class="badge pre">Pre-selling</span></td><td>27</td><td>•••</td>
+            </tr>
+            <tr data-status="Available">
+              <td><div class="property-name"><span class="thumb t5">TA</span><span><b>The Arcadia</b><small>House and Lot</small></span></div></td>
+              <td>Pampanga</td><td>House &amp; Lot</td><td><span class="badge available">Available</span></td><td>22</td><td>•••</td>
+            </tr>
+            <tr data-status="Maintenance">
+              <td><div class="property-name"><span class="thumb t6">FG</span><span><b>The Fountain Grove</b><small>House and Lot</small></span></div></td>
+              <td>Bacolod</td><td>House &amp; Lot</td><td><span class="badge maintenance">Maintenance</span></td><td>18</td><td>•••</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="table-footer">
+        <span id="tableCount">Showing 6 sample developments</span>
+        <span>Demo data only</span>
+      </div>
+    </section>
+
+    <section class="lower">
+      <article class="panel" id="operations">
+        <div class="panel-heading"><div><h3>Recent activity</h3><p>Latest workspace updates</p></div></div>
+        <div id="activityList" class="activity-list">
+          <div class="activity"><i class="activity-dot green-dot">⌂</i><span><b>Property inquiry received</b><small>New inquiry for Palm City · 12 minutes ago</small></span></div>
+          <div class="activity"><i class="activity-dot blue-dot">♙</i><span><b>Buyer lead updated</b><small>A lead status was updated · 48 minutes ago</small></span></div>
+          <div class="activity"><i class="activity-dot gold-dot">☷</i><span><b>Operations review pending</b><small>Check outstanding tasks · 2 hours ago</small></span></div>
+        </div>
+      </article>
+
+      <article class="panel" id="staff">
+        <div class="panel-heading">
+          <div><h3>Upcoming appointments</h3><p>Sample schedule for your team</p></div>
+          <button class="text-button" id="addAppointment">+ Add</button>
+        </div>
+        <div id="appointments" class="appointments">
+          <div class="appointment"><span class="day"><b>24</b><small>OCT</small></span><span><b>Property viewing</b><small>Palm City · Buyer meeting</small></span><time>10:00 AM</time></div>
+          <div class="appointment"><span class="day"><b>25</b><small>OCT</small></span><span><b>Sales team meeting</b><small>Main office · Team review</small></span><time>2:30 PM</time></div>
+          <div class="appointment"><span class="day"><b>27</b><small>OCT</small></span><span><b>Site inspection</b><small>Development site · Operations</small></span><time>9:00 AM</time></div>
+        </div>
+      </article>
+    </section>
+
+    <section class="quick-links" id="sustainability">
+      <a href="#properties">⌂ <span><b>Property listings</b><small>Manage developments</small></span> →</a>
+      <a href="#leads">♙ <span><b>Buyer leads</b><small>Review inquiries</small></span> →</a>
+      <a href="#staff">♧ <span><b>Staff directory</b><small>Team information</small></span> →</a>
+      <a href="#reports" id="reports">▤ <span><b>Reports</b><small>Export summaries</small></span> →</a>
+    </section>
+
+    <footer>© <span id="year"></span> Suntrust Properties Inc. · Dashboard prototype <span>For authorized company use</span></footer>
+  </main>
+
+  <div class="modal-backdrop" id="modal" aria-hidden="true">
+    <section class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-head">
+        <div><h2 id="modalTitle">Add property</h2><p>Add a development to this dashboard preview.</p></div>
+        <button id="closeModal" aria-label="Close">×</button>
+      </div>
+      <form id="propertyForm">
+        <label for="newName">Property name</label>
+        <input id="newName" required placeholder="e.g. Suntrust Garden Homes">
+        <div class="form-row">
+          <div><label for="newLocation">Location</label><input id="newLocation" required placeholder="e.g. Cavite"></div>
+          <div><label for="newType">Property type</label>
+            <select id="newType"><option>House &amp; Lot</option><option>Condominium</option><option>Land</option><option>Commercial</option></select>
+          </div>
+        </div>
+        <label for="newStatus">Status</label>
+        <select id="newStatus"><option>Available</option><option>Pre-selling</option><option>Sold Out</option><option>Maintenance</option></select>
+        <div class="modal-actions">
+          <button type="button" class="secondary" id="cancelModal">Cancel</button>
+          <button type="submit" class="primary">Add property</button>
+        </div>
+      </form>
+      <p class="note">Demo only: new records are not saved after refreshing the page.</p>
+    </section>
+  </div>
+
+  <script src="index.js"></script>
+</body>
+</html>
