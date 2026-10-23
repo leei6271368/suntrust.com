@@ -5,59 +5,55 @@ document.addEventListener("DOMContentLoaded", () => {
   const contactForm = document.getElementById("contactForm");
   const formMessage = document.getElementById("formMessage");
 
-  // Automatically update the copyright year.
+  // Update the copyright year automatically.
   if (year) {
     year.textContent = new Date().getFullYear();
   }
 
   // Mobile navigation menu.
   if (menuToggle && mainNav) {
-    menuToggle.addEventListener("click", () => {
-      const isOpen = mainNav.classList.toggle("open");
+    const closeMenu = () => {
+      mainNav.classList.remove("open");
+      menuToggle.setAttribute("aria-expanded", "false");
+      menuToggle.setAttribute("aria-label", "Open navigation");
+      menuToggle.textContent = "☰";
+    };
 
-      menuToggle.setAttribute("aria-expanded", String(isOpen));
+    menuToggle.addEventListener("click", () => {
+      const open = mainNav.classList.toggle("open");
+
+      menuToggle.setAttribute("aria-expanded", String(open));
       menuToggle.setAttribute(
         "aria-label",
-        isOpen ? "Close navigation" : "Open navigation"
+        open ? "Close navigation" : "Open navigation"
       );
-
-      menuToggle.textContent = isOpen ? "×" : "☰";
+      menuToggle.textContent = open ? "×" : "☰";
     });
 
-    // Close the menu after a navigation link is selected.
+    // Close the menu when a visitor selects a link.
     mainNav.querySelectorAll("a").forEach((link) => {
-      link.addEventListener("click", () => {
-        mainNav.classList.remove("open");
-        menuToggle.setAttribute("aria-expanded", "false");
-        menuToggle.setAttribute("aria-label", "Open navigation");
-        menuToggle.textContent = "☰";
-      });
+      link.addEventListener("click", closeMenu);
     });
 
     // Close the menu when Escape is pressed.
     document.addEventListener("keydown", (event) => {
       if (event.key === "Escape") {
-        mainNav.classList.remove("open");
-        menuToggle.setAttribute("aria-expanded", "false");
-        menuToggle.setAttribute("aria-label", "Open navigation");
-        menuToggle.textContent = "☰";
+        closeMenu();
       }
     });
   }
 
-  // Contact form: prepares an email in the visitor's email application.
+  // Contact form: prepares an email for the visitor to send.
   if (contactForm) {
     contactForm.addEventListener("submit", (event) => {
       event.preventDefault();
 
-      const formData = new FormData(contactForm);
+      const data = new FormData(contactForm);
 
-      const name = String(formData.get("name") || "").trim();
-      const email = String(formData.get("email") || "").trim();
-      const interest = String(
-        formData.get("interest") || "General inquiry"
-      );
-      const message = String(formData.get("message") || "").trim();
+      const name = String(data.get("name") || "").trim();
+      const email = String(data.get("email") || "").trim();
+      const topic = String(data.get("topic") || "General inquiry");
+      const message = String(data.get("message") || "").trim();
 
       if (!name || !email || !message) {
         if (formMessage) {
@@ -68,19 +64,19 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       const subject = encodeURIComponent(
-        `Suntrust website inquiry: ${interest}`
+        `Suntrust website inquiry: ${topic}`
       );
 
       const body = encodeURIComponent(
         `Name: ${name}\n` +
         `Email: ${email}\n` +
-        `Interest: ${interest}\n\n` +
+        `Inquiry: ${topic}\n\n` +
         `Message:\n${message}`
       );
 
       if (formMessage) {
         formMessage.textContent =
-          "Opening your email app. Review the message and send it from there.";
+          "Your email app should open with the message prepared. Please review and send it there.";
       }
 
       window.location.href =
