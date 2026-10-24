@@ -1,0 +1,248 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore Suntrust Properties house-and-lot and condominium developments.">
+  <title>Properties | Suntrust Properties, Inc.</title>
+  <link rel="stylesheet" href="properties.css">
+  <script src="properties.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a href="index.html" class="brand">
+      <span class="brand-icon">S</span>
+      <span>SUNTRUST <small>PROPERTIES, INC.</small></span>
+    </a>
+
+    <button class="menu-toggle" id="menuToggle"
+      aria-label="Open navigation" aria-expanded="false"
+      aria-controls="mainNav">☰</button>
+
+    <nav class="main-nav" id="mainNav">
+      <a href="index.html">Home</a>
+      <a href="about-us.html">About Us</a>
+      <a href="properties.html" class="active">Properties</a>
+      <a href="operations.html">Operations</a>
+      <a href="sustainability.html">Sustainability</a>
+      <a href="contact.html" class="contact-link">Contact Us ↗</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="properties-hero">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <p class="eyebrow">FIND YOUR PLACE TO BELONG</p>
+        <h1>Discover Your<br><span>Future Home.</span></h1>
+        <p>Explore residential property options and discover a community where your next chapter can begin.</p>
+        <a href="#property-list" class="button button-gold">Explore Properties ↓</a>
+      </div>
+    </section>
+
+    <section class="intro-section">
+      <p class="eyebrow">SUNTRUST PROPERTIES</p>
+      <h2>Available Properties</h2>
+      <p>Spacious living awaits you. Explore the property options below and contact our team for verified project details, availability, and pricing.</p>
+    </section>
+
+    <section class="listing-section" id="property-list">
+      <div class="listing-heading">
+        <div>
+          <p class="eyebrow">EXPLORE OUR DEVELOPMENTS</p>
+          <h2>Find a Property</h2>
+        </div>
+        <p id="resultsCount" aria-live="polite">Showing all properties</p>
+      </div>
+
+      <div class="filter-panel">
+        <div class="filter-field">
+          <label for="propertySearch">Search properties</label>
+          <input type="search" id="propertySearch"
+            placeholder="Search by project name..." autocomplete="off">
+        </div>
+
+        <div class="filter-field">
+          <label for="propertyType">Property type</label>
+          <select id="propertyType">
+            <option value="all">All Property Types</option>
+            <option value="house-and-lot">House &amp; Lot</option>
+            <option value="condominium">Condominium</option>
+          </select>
+        </div>
+
+        <div class="filter-field">
+          <label for="propertyLocation">Location</label>
+          <select id="propertyLocation">
+            <option value="all">All Locations</option>
+            <option value="tagum">Tagum</option>
+            <option value="laguna">Laguna</option>
+            <option value="other">Other / To be confirmed</option>
+          </select>
+        </div>
+
+        <button type="button" class="reset-button" id="resetFilters">
+          Reset Filters
+        </button>
+      </div>
+
+      <div class="property-grid" id="propertyGrid">
+        <article class="property-card"
+          data-name="Palm City" data-type="house-and-lot" data-location="tagum">
+          <div class="property-image image-palm">
+            <span class="property-badge">House &amp; Lot</span>
+            <span class="image-caption">Illustrative image</span>
+          </div>
+          <div class="property-content">
+            <p class="property-location">⌖ Tagum</p>
+            <h3>Palm City</h3>
+            <p class="property-description">Explore this residential development and ask the Suntrust team about available homes.</p>
+            <div class="property-meta">
+              <span>House &amp; Lot</span>
+              <span>Availability: Confirm with sales</span>
+            </div>
+            <a class="property-link" href="contact.html?property=Palm%20City">
+              Enquire About This Property →
+            </a>
+          </div>
+        </article>
+
+        <article class="property-card"
+          data-name="San Francisco Heights" data-type="house-and-lot" data-location="laguna">
+          <div class="property-image image-san-francisco">
+            <span class="property-badge">House &amp; Lot</span>
+            <span class="image-caption">Illustrative image</span>
+          </div>
+          <div class="property-content">
+            <p class="property-location">⌖ Laguna</p>
+            <h3>San Francisco Heights</h3>
+            <p class="property-description">Learn about this residential project and request current inventory and pricing.</p>
+            <div class="property-meta">
+              <span>House &amp; Lot</span>
+              <span>Availability: Confirm with sales</span>
+            </div>
+            <a class="property-link" href="contact.html?property=San%20Francisco%20Heights">
+              Enquire About This Property →
+            </a>
+          </div>
+        </article>
+
+        <article class="property-card"
+          data-name="Siena Hills" data-type="house-and-lot" data-location="other">
+          <div class="property-image image-siena">
+            <span class="property-badge">House &amp; Lot</span>
+            <span class="image-caption">Illustrative image</span>
+          </div>
+          <div class="property-content">
+            <p class="property-location">⌖ Confirm project location</p>
+            <h3>Siena Hills</h3>
+            <p class="property-description">Contact Suntrust to verify the project's location, home options, and availability.</p>
+            <div class="property-meta">
+              <span>Project details to confirm</span>
+              <span>Ask for availability</span>
+            </div>
+            <a class="property-link" href="contact.html?property=Siena%20Hills">
+              Enquire About This Property →
+            </a>
+          </div>
+        </article>
+
+        <article class="property-card"
+          data-name="House and Lot Enquiry" data-type="house-and-lot" data-location="other">
+          <div class="property-image image-house">
+            <span class="property-badge">House &amp; Lot</span>
+            <span class="image-caption">Illustrative image</span>
+          </div>
+          <div class="property-content">
+            <p class="property-location">⌖ Ask for locations</p>
+            <h3>House &amp; Lot Options</h3>
+            <p class="property-description">Looking for a house and lot? Ask about Suntrust developments that match your needs.</p>
+            <div class="property-meta">
+              <span>Property enquiry</span>
+              <span>Details on request</span>
+            </div>
+            <a class="property-link" href="contact.html?property=House%20and%20Lot">
+              Enquire About This Property →
+            </a>
+          </div>
+        </article>
+
+        <article class="property-card"
+          data-name="Condominium Enquiry" data-type="condominium" data-location="other">
+          <div class="property-image image-condo">
+            <span class="property-badge">Condominium</span>
+            <span class="image-caption">Illustrative image</span>
+          </div>
+          <div class="property-content">
+            <p class="property-location">⌖ Ask for locations</p>
+            <h3>Condominium Options</h3>
+            <p class="property-description">Interested in condominium living? Request information about available developments.</p>
+            <div class="property-meta">
+              <span>Condominium enquiry</span>
+              <span>Details on request</span>
+            </div>
+            <a class="property-link" href="contact.html?property=Condominium">
+              Enquire About This Property →
+            </a>
+          </div>
+        </article>
+
+        <article class="property-card"
+          data-name="Property Consultation" data-type="all" data-location="other">
+          <div class="property-image image-community">
+            <span class="property-badge">Property Enquiry</span>
+            <span class="image-caption">Illustrative image</span>
+          </div>
+          <div class="property-content">
+            <p class="property-location">⌖ Discuss your preferred area</p>
+            <h3>Find Your Ideal Community</h3>
+            <p class="property-description">Tell us your preferred location and property type so the team can guide your enquiry.</p>
+            <div class="property-meta">
+              <span>Homebuyer assistance</span>
+              <span>Contact for details</span>
+            </div>
+            <a class="property-link" href="contact.html?property=Property%20Consultation">
+              Enquire About This Property →
+            </a>
+          </div>
+        </article>
+      </div>
+
+      <div class="empty-state" id="emptyState" hidden>
+        <h3>No matching properties found</h3>
+        <p>Try another search term or change your filters.</p>
+        <button type="button" class="button button-dark" id="emptyReset">
+          View All Properties
+        </button>
+      </div>
+
+      <p class="listing-disclaimer">
+        Property examples and photographs on this page are for website layout demonstration.
+        Verify official project names, locations, images, prices, availability, and status with Suntrust before publishing.
+      </p>
+    </section>
+
+    <section class="property-cta">
+      <p class="eyebrow">TAKE THE NEXT STEP</p>
+      <h2>Have questions about a property?</h2>
+      <p>Contact us to request project information and discuss your homeownership goals.</p>
+      <a href="contact.html" class="button button-gold">Contact Suntrust ↗</a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a href="index.html" class="footer-brand">SUNTRUST PROPERTIES, INC.</a>
+    <p>Discover possibilities. Find your place to belong.</p>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="about-us.html">About Us</a>
+      <a href="properties.html">Properties</a>
+      <a href="operations.html">Operations</a>
+      <a href="sustainability.html">Sustainability</a>
+      <a href="contact.html">Contact Us</a>
+    </div>
+    <p class="copyright">© <span id="currentYear"></span> Suntrust Properties, Inc. All rights reserved.</p>
+  </footer>
+</body>
+</html>
