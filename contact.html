@@ -1,0 +1,175 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact Suntrust Properties for property enquiries, homeownership information, and assistance.">
+  <title>Contact Us | Suntrust Properties</title>
+  <link rel="stylesheet" href="contact.css">
+  <script src="contact.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="Suntrust Properties home">
+      <span class="brand-mark">S</span>
+      <span>SUNTRUST <small>PROPERTIES, INC.</small></span>
+    </a>
+
+    <button class="menu-toggle" id="menuToggle"
+      aria-label="Open navigation" aria-expanded="false"
+      aria-controls="mainNav">☰</button>
+
+    <nav class="main-nav" id="mainNav">
+      <a href="index.html">Home</a>
+      <a href="index.html#properties">Properties</a>
+      <a href="about-us.html">About Us</a>
+      <a href="operations.html">Operations</a>
+      <a href="sustainability.html">Sustainability</a>
+      <a class="nav-contact active" href="contact.html">Contact Us ↗</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="contact-hero">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <p class="eyebrow">WE'RE HERE TO HELP</p>
+        <h1>Let's Talk About<br><span>Your Future Home.</span></h1>
+        <p>Have a question about our properties? Our contact page is the place to start your enquiry and learn more about finding a home with Suntrust.</p>
+        <a class="button button-gold" href="#contact-details">Get in Touch ↓</a>
+      </div>
+    </section>
+
+    <section class="intro-section">
+      <p class="eyebrow">CONNECT WITH SUNTRUST</p>
+      <h2>How Can We Help You?</h2>
+      <p>Whether you're exploring available properties or need more information about our communities, send us your enquiry using the details below.</p>
+    </section>
+
+    <section class="contact-layout" id="contact-details">
+      <div class="contact-information">
+        <p class="eyebrow">CONTACT INFORMATION</p>
+        <h2>We'd love to hear from you.</h2>
+        <p class="information-intro">Choose a contact option or complete the enquiry form. Please confirm the official contact details before publishing this page.</p>
+
+        <div class="info-item">
+          <div class="info-icon">☎</div>
+          <div>
+            <h3>Call Us</h3>
+            <p>Official Suntrust contact number</p>
+            <a href="tel:+63288567015">(632) 8856-70-15 local 200/0</a>
+          </div>
+        </div>
+
+        <div class="info-item">
+          <div class="info-icon">✉</div>
+          <div>
+            <h3>Email Us</h3>
+            <p>Send us your questions</p>
+            <a href="mailto:wecare@suntrust.com.ph">wecare@suntrust.com.ph</a>
+          </div>
+        </div>
+
+        <div class="info-item">
+          <div class="info-icon">⌖</div>
+          <div>
+            <h3>Visit Us</h3>
+            <p>Please check Suntrust's official website for its current office address and visiting hours.</p>
+          </div>
+        </div>
+
+        <div class="contact-note">
+          <strong>Looking for a property?</strong>
+          <p>Explore our available properties to discover residential communities that may suit your needs.</p>
+          <a href="index.html#properties">Explore Properties →</a>
+        </div>
+      </div>
+
+      <div class="form-card">
+        <p class="eyebrow">SEND AN ENQUIRY</p>
+        <h2>How can we assist you?</h2>
+        <p class="form-description">Complete the form below. Fields marked with * are required.</p>
+
+        <form id="contactForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fullName">Full Name *</label>
+              <input type="text" id="fullName" name="fullName"
+                placeholder="Enter your full name" autocomplete="name" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address *</label>
+              <input type="email" id="email" name="email"
+                placeholder="you@example.com" autocomplete="email" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" name="phone"
+                placeholder="Enter your phone number" autocomplete="tel">
+            </div>
+            <div class="form-group">
+              <label for="enquiryType">Enquiry Type *</label>
+              <select id="enquiryType" name="enquiryType" required>
+                <option value="">Select an enquiry</option>
+                <option value="Property enquiry">Property enquiry</option>
+                <option value="House and lot">House and lot</option>
+                <option value="Condominium">Condominium</option>
+                <option value="Payment enquiry">Payment enquiry</option>
+                <option value="Customer support">Customer support</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="property">Property or Project of Interest</label>
+            <input type="text" id="property" name="property"
+              placeholder="Enter a property or project name">
+          </div>
+
+          <div class="form-group">
+            <label for="message">Your Message *</label>
+            <textarea id="message" name="message" rows="5"
+              placeholder="Tell us how we can help..." required></textarea>
+          </div>
+
+          <label class="consent-row">
+            <input type="checkbox" id="consent" name="consent" required>
+            <span>I agree to be contacted regarding this enquiry. *</span>
+          </label>
+
+          <button type="submit" class="button button-submit" id="submitButton">
+            Prepare Enquiry →
+          </button>
+
+          <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+          <p class="form-disclaimer">This form prepares an email in your email application. It does not submit information to a Suntrust server.</p>
+        </form>
+      </div>
+    </section>
+
+    <section class="closing-section">
+      <p class="eyebrow">YOUR NEXT CHAPTER STARTS HERE</p>
+      <h2>Find a place to call home.</h2>
+      <p>Explore our property listings and take the next step toward your homeownership goals.</p>
+      <a class="button button-gold" href="index.html#properties">View Available Properties →</a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a class="footer-brand" href="index.html">SUNTRUST PROPERTIES, INC.</a>
+    <p>Discover possibilities. Find your place to belong.</p>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="about-us.html">About Us</a>
+      <a href="index.html#properties">Properties</a>
+      <a href="contact.html">Contact Us</a>
+    </div>
+    <p class="copyright">© <span id="currentYear"></span> Suntrust Properties, Inc. All rights reserved.</p>
+  </footer>
+</body>
+</html>
